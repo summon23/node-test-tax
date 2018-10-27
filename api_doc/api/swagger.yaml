@@ -1,0 +1,57 @@
+---
+swagger: "2.0"
+info:
+  description: "Product Tax Calculation"
+  version: "1.0.0"
+  title: "Swagger Product Tax Calculation"
+host: "localhost:3002"
+schemes:
+- "http"
+paths:
+  /product/submittax:
+    post:
+      tags:
+      - "Tax Calculation"
+      summary: "Calculate a product tax"
+      description: "calculate product tax based on tax code and product price"
+      operationId: "calculateProductTax"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Product Detail that will be calculated and store to database"
+        required: true
+        schema:
+          $ref: "#/definitions/Product"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request"
+      x-swagger-router-controller: "TaxCalculation"
+definitions:
+  Product:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      tax_code:
+        type: "integer"
+        format: "int32"
+        description: "Tax Code Applied to Product"
+        enum:
+        - 1
+        - 2
+        - 3
+      price:
+        type: "integer"
+        format: "int32"
+    example:
+      tax_code: 0
+      price: 6
+      name: "name"
+    xml:
+      name: "Product"
