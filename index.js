@@ -18,10 +18,7 @@ const loadApplication = async function () {
         extended: true
     }));
 
-    app.use(cors({
-        origin: 'http://localhost:8080',
-        credentials: true
-    }));
+    app.use(cors());
 
     await core.registerMethod(app);
 
