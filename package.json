@@ -1,0 +1,67 @@
+{
+  "name": "node-test-tax-shopee",
+  "version": "1.0.0",
+  "description": "Tax Cal Shoope",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "unit-test": "npm run unit-test-without-coverage && npm run report-coverage; npm run report-test",
+    "unit-test-without-coverage": "NODE_ENV=test nyc --reporter=text ava --verbose",
+    "report-coverage": "NODE_ENV=test nyc report",
+    "report-test": "NODE_ENV=test ava --tap "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/summon23/node-test-tax.git"
+  },
+  "author": "andrymahdison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/summon23/node-test-tax/issues"
+  },
+  "homepage": "https://github.com/summon23/node-test-tax#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "~4.15.2",
+    "joi": "^14.0.1",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.41.0"
+  },
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "nyc": "^11.8.0",
+    "sinon": "^4.5.0"
+  },
+  "nyc": {
+    "per-file": true,
+    "lines": 95,
+    "statements": 95,
+    "functions": 95,
+    "branches": 95,
+    "reporter": [
+      "lcov"
+    ],
+    "exclude": [
+      "repositories/*.js",
+      "modules/**/*.js",
+      "model/*.js",
+      "config/*.js",
+      "domain/*.js",
+      "utils/*.js",
+      "tests/**"
+    ]
+  },
+  "ava": {
+    "files": [
+      "tests/unit/**/*.test.js"
+    ],
+    "failFast": false,
+    "failWithoutAssertions": false,
+    "tap": false,
+    "powerAssert": true
+  }
+}
