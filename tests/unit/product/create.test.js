@@ -36,10 +36,8 @@ test.serial('Should return BadRequest Not Valid Payload', async function (t) {
     }
     try {
         const res = await Method.MAINFUNCTION(payload, responseHandler);
-        // console.log(res);
         t.deepEqual(res.status, 400);
         t.deepEqual(res.data.message, 'ValidationError: child "tax_code" fails because ["tax_code" must be one of [1, 2, 3]]');
-        // t.fail('Should return BadRequest Not Valid Payload');
     } catch (err) {
         t.fail('Should return BadRequest Not Valid Payload')
     }
