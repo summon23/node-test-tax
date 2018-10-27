@@ -30,8 +30,6 @@ exports.getContext = async function getContext() {
         operatorsAliases: false,
     });
 
-    console.log("[***]");
-    console.log("[env]", process.env.DB_CONNECTION_STRING);
     DB.authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
