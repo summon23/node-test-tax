@@ -48,7 +48,7 @@ const productTax = async function productTax(request, res, next) {
 }
 
 module.exports = {
-    ENDPOINT: '/submit',
+    ENDPOINT: '/submittax',
     METHODTYPE: 'POST',
     MAINFUNCTION: productTax,
     MIDDLEWARE: null
