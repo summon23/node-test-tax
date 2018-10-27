@@ -11,8 +11,8 @@ services:
       - mysql
     depends_on:
       - mysql
-    volumes:
-      - .:/usr/src/app 
+    environment:
+      WAIT_HOSTS: mysql:3306
   mysql:
     image: mysql:5.7
     container_name: mysql
