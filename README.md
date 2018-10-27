@@ -18,6 +18,12 @@ $ docker-compose build
 $ docker-compose up
 ```
 
+### Unit Test
+
+```sh
+$ npm run unit-test
+```
+
 ### Access
 
 Some of endpoint that can be access in this application.
