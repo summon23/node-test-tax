@@ -18,12 +18,14 @@ exports.loadEnvironment = () => {
         inferredEnv = 'uat';
     }
 
-    const loadedEnv = DotEnv.parse(fs.readFileSync(path.join(__dirname,'../environments', inferredEnv + '.env')));
-    for (const key in loadedEnv) {
-        process.env[key] = loadedEnv[key];
+    if (fs.existsSync(path.join(__dirname,'../environments', inferredEnv + '.env'))) {
+        const loadedEnv = DotEnv.parse(fs.readFileSync(path.join(__dirname,'../environments', inferredEnv + '.env')));
+        for (const key in loadedEnv) {
+            process.env[key] = loadedEnv[key];
+        }
     }
+    
     process.env.NODE_ENV = inferredEnv;
-
     console.log('Loaded ENV: ' + process.env.NODE_ENV.toUpperCase());
 }
 

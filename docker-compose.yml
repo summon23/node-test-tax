@@ -13,6 +13,9 @@ services:
       - mysql
     environment:
       WAIT_HOSTS: mysql:3306
+      PORT: 3002
+      DB_CONNECTION_STRING: mysql://root:example@mysql:3306/shopee_tax
+      NODE_ENV: Local
   mysql:
     image: mysql:5.7
     container_name: mysql
@@ -21,7 +24,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: shopee_tax
-      MYSQL_USER: hilmansyafei
+      MYSQL_USER: andrymahdison
       MYSQL_PASSWORD: secret
     ports:
       - 3306:3306
