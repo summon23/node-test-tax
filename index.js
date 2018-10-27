@@ -6,6 +6,7 @@ const cors = require('cors');
 const core = require('./method');
 const config = require('./config');
 const app = express();
+const path = require('path');
  
 const loadApplication = async function () {
     // Load Env File
@@ -23,6 +24,12 @@ const loadApplication = async function () {
     }));
 
     await core.registerMethod(app);
+
+    // Static Page
+
+    app.get('/', function(req, res){
+        res.sendFile(path.join(__dirname, './page/calculate_tax.html'));
+    });
 
     app.use(function(req, res, next){
         res.status(404);
