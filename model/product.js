@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             unique: true
         },
         name: { type: DataTypes.STRING },
-        tax_code: { type: DataTypes.INTEGER },
+        tax_code: { type: DataTypes.ENUM('1', '2', '3') },
         price: { type: DataTypes.STRING },
         created_at: { type: DataTypes.DATE },
         updated_at: { type: DataTypes.DATE }
