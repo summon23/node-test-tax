@@ -8,9 +8,9 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             unique: true
         },
-        name: { type: DataTypes.STRING },
+        name: { type: DataTypes.STRING(40) },
         tax_code: { type: DataTypes.ENUM('1', '2', '3') },
-        price: { type: DataTypes.STRING },
+        price: { type: DataTypes.STRING(10) },
         created_at: { type: DataTypes.DATE },
         updated_at: { type: DataTypes.DATE }
     }, {
