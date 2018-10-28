@@ -1,10 +1,9 @@
 version: "2"
 services:
   app:
-    container_name: app_shoppie
     restart: always
     working_dir: /usr/src/app 
-    build: .
+    build: ./
     ports:
       - "3002:3002"
     links:
@@ -17,7 +16,6 @@ services:
       DB_CONNECTION_STRING: mysql://root:example@mysql:3306/shopee_tax
       NODE_ENV: Local
   apidoc:
-    container_name: apidoc
     restart: always
     working_dir: /usr/src/app
     build: ./api_doc
@@ -29,7 +27,6 @@ services:
       - app
   mysql:
     image: mysql:5.7
-    container_name: mysql
     volumes:
       - ./db:/var/lib/mysql
     environment:
