@@ -2,8 +2,10 @@ version: "2"
 services:
   app:
     restart: always
-    working_dir: /usr/src/app 
-    build: ./
+    working_dir: /usr/src/app     
+    build: 
+      context: ./
+      dockerfile: ./DockerFile
     ports:
       - "3002:3002"
     links:
@@ -18,7 +20,9 @@ services:
   apidoc:
     restart: always
     working_dir: /usr/src/app
-    build: ./api_doc
+    build: 
+      context: ./api_doc/
+      dockerfile: ./DockerFile
     ports:
       - "3003:3003"
     links:
